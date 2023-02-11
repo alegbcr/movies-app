@@ -1,0 +1,47 @@
+/* POSITION ROW */
+.movies-container-row {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+.movies-poster-container-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    height: 13rem;
+}
+
+/* POSITION COLUMN */
+.movies-container-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* TITLE */
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.title-preview,
+.link-preview{
+    display: inline-block;
+    margin: 0;
+}
+
+.link-preview{
+    padding: .2rem .8rem;
+    right: 1px;
+    text-align: end;
+    cursor: pointer;
+}
+
+.link-preview:hover{
+    color: blue;
+}

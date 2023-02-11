@@ -1,0 +1,89 @@
+.slider__container .slider_arrow--left,
+.slider__container .slider_arrow--right {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 25px;
+    color: var(--black-color);
+    z-index: 20;
+    cursor: pointer;
+}
+
+.slider__container .slider_arrow--left {
+    left: 5px;
+}
+
+ .slider__container .slider_arrow--right {
+    right: 5px;
+}
+
+.slider__container {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.slider__container--images {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: .3s ease all;
+    z-index: 10;
+    display: flex;
+    overflow: hidden;
+}
+
+.slider__container--images .slide--image {
+    display: flex;
+    vertical-align: middle;
+    width: 100%;
+    height: 95%;
+}
+
+.information__container {
+    height: 160px;
+    position: absolute;
+    padding: 20px 0 0 0;
+    bottom: 0;
+    font-size: var(--small-paragraph);
+    line-height: var(--low-height);
+background: rgb(36, 36, 36);
+    background: linear-gradient(0deg, rgba(36, 36, 36, 1) 60%, rgba(36, 36, 36, 0.7308450996677741) 80%, rgba(36, 36, 36, 0) 100%);
+    /* background-color: rgba(0, 255, 255, 0.155); */
+}
+
+.information__container .information__title {
+    font-size: var(--large-title);
+    line-height: var(--normal-height);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.information__container .information__description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+.information__container .information__description--items {
+    display: flex;
+}
+
+.information__container .information__description--items p{
+    margin: 5px 5px 5px 0;
+}
+
+.information__container .information__description .information__button {
+    margin: 5px 5px 5px 0;
+}
+
+.information__container .information__title,
+.information__container .information__description,
+.information__container .information__overview {
+    margin: 0 20px;
+}
