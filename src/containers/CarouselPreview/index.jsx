@@ -9,11 +9,9 @@ const CarouselPreview = (props) => {
   const movies = useGetMovies(props.API);
 
   return (
-    <>
-      <div className="carousel__container--mobile">
-        <ImageSlider movies={movies} />
-      </div>
-    </>
+    <div className="carousel__container--mobile">
+      <ImageSlider movies={movies} />
+    </div>
   );
 };
 

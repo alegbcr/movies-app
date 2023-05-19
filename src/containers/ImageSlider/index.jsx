@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+// Custom Hooks
+import useWindowDimension from "../../hooks/useWindowDimensions.js";
 // components
 import { Button } from "../../components/Button";
 // icons
@@ -9,6 +11,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./ImageSlider.css";
 
 const ImageSlider = ({ movies }) => {
+  const { width } = useWindowDimension();
   const navigate = useNavigate();
   const slideShow = useRef(null);
 
@@ -71,33 +74,65 @@ const ImageSlider = ({ movies }) => {
           className="slider_arrow--right"
           onClick={() => handleGoToNext()}
         />
-        <div ref={slideShow}>
-          {movies.map((movie) => (
-            <picture key={movie.id} className={`slider__container--images`}>
-              <img
-                className="slide--image"
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <div className="information__container">
-                <h2 className="information__title">{movie.title}</h2>
-                <div className="information__description">
-                  <div className="information__description--items">
-                    <p>{movie.original_language}</p>
-                    <p>{movie.release_date}</p>
-                    <p>{movie.vote_average}</p>
+        {width <= 425 ? (
+          <div ref={slideShow}>
+            {movies.map((movie) => (
+              <picture key={movie.id} className={`slider__container--images`}>
+                <img
+                  className="slide--image"
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <div className="information__container">
+                  <h2 className="information__title">{movie.title}</h2>
+                  <div className="information__description">
+                    <div className="information__description--items">
+                      <p>{movie.original_language}</p>
+                      <p>{movie.release_date}</p>
+                      <p>{movie.vote_average}</p>
+                    </div>
+                    <Button
+                      className="information__button"
+                      handleAction={() => navigate(`/movie/${movie.id}`)}
+                      text="Más información"
+                    />
                   </div>
-                  <Button
-                    className="information__button"
-                    handleAction={() => navigate(`/movie/${movie.id}`)}
-                    text="Más información"
-                  />
+                  <p className="information__overview">{movie.overview}</p>
                 </div>
-                <p className="information__overview">{movie.overview}</p>
-              </div>
-            </picture>
-          ))}
-        </div>
+              </picture>
+            ))}
+          </div>
+        ) : (
+          <div ref={slideShow}>
+            {movies.map((movie) => (
+              <picture key={movie.id} className="slider__container--images">
+                <img
+                  className="slide--image"
+                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                  alt={movie.title}
+                />
+                <div className="information__container">
+                  <div style={{ width: "80%" }}>
+                    <h2 className="information__title">{movie.title}</h2>
+                    <div className="information__description">
+                      <div className="information__description--items">
+                        <p>{movie.original_language}</p>
+                        <p>{movie.release_date}</p>
+                        <p>{movie.vote_average}</p>
+                      </div>
+                      <Button
+                        className="information__button"
+                        handleAction={() => navigate(`/movie/${movie.id}`)}
+                        text="Más información"
+                      />
+                    </div>
+                    <p className="information__overview">{movie.overview}</p>
+                  </div>
+                </div>
+              </picture>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

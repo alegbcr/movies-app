@@ -1,4 +1,4 @@
-.menu__container--mobile {
+.menu__container {
     position: sticky;
     z-index: 100;
     top: 0;
@@ -10,21 +10,27 @@
 }
 
 /* Mobile Size */
-.menu__container--mobile .menu__item--search{
+.menu__container .menu__item--search{
     position: relative;
     margin-left: 20px;
     display: flex;
     align-items: center;
-    /* background-color: antiquewhite; */
     padding: 2px;
     border-radius: 5px;
 }
 
-.menu__container--mobile .menu__item--toggle{
+.menu__container .menu__item--search .menu__item--icon {
+    background: transparent;
+    border-radius: 0px 10px 10px 0px;
+    position: absolute;
+    right: 8px;
+}
+
+.menu__container .menu__item--toggle{
     margin-right: 20px;
 }
 
-.menu__container--mobile .abc{
+.menu__container .menu__container--mobile{
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -36,16 +42,58 @@
     background-color: var(--black-color);
 }
 
-.menu__container--mobile .abc ul{
+.menu__container .menu__container--mobile .menu-list__container--mobile {
     padding-left: 40px;
 }
 
-.subtitle__category {
-    font-size: 20px;
-    margin-top: 8px;
+.menu-list__container--mobile .menu-list__subtitle {
+    font-size: 1rem;
 }
 
-.title__category {
+.menu-list__title {
     margin: 40px 0px 20px 35px;
-    font-size: 30px;
+    font-size: 1.8rem;
+}
+
+/* Menu Desktop */
+.menu__container--desktop {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    
+}
+
+.menu__container--desktop .menu-list__container{
+    display: flex;
+}
+
+.menu__container--desktop .menu-list__container li{
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.menu__container--desktop .category__container{
+    width: 100vw;
+    height: 180px;
+    background-color: var(--black-color);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 7vh;
+    left: 0;
+}
+
+.menu__container--desktop .category__container .category__container--items {
+    width: 60%;
+    height: 70%;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.category__container .category__container--items .category__items--name {
+    font-size: 1rem;
 }
