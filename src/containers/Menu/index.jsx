@@ -36,6 +36,10 @@ const Menu = () => {
     }
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   // Submit data
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,8 +78,9 @@ const Menu = () => {
           <div className="menu__container--desktop">
             <picture style={{ display: "flex", maxWidth: "100%" }}>
               <img
-                style={{ width: "120px" }}
-                src="https://i.postimg.cc/TPfc3PFS/mind-world.png"
+                style={{ width: "120px", cursor: "pointer" }}
+                src="https://i.postimg.cc/xjPMTnZ6/movies-details-01.png"
+                onClick={() => handleHomeClick()}
                 alt=""
               />
             </picture>
